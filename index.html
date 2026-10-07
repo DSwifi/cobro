@@ -6,124 +6,237 @@
 <title>DSwifi - Aviso de Pago</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+}
 
 body{
-  margin:0;
-  min-height:100vh;
-  font-family:Arial,sans-serif;
-  background:
-    radial-gradient(circle at 20% 10%,#ffcf40 0%,transparent 25%),
-    radial-gradient(circle at 90% 80%,#c88900 0%,transparent 30%),
-    linear-gradient(145deg,#120b00,#4b2d00,#120b00);
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 25% 20%, #80651c 0%, #4d3708 28%, #251500 62%, #170c00 100%);
+    color:white;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
 }
 
 .contenido{
-  width:100%;
-  min-height:100vh;
-  padding:28px 20px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+    width:100%;
+    max-width:800px;
+    min-height:100vh;
+    padding:12px 24px 28px;
+    text-align:center;
 }
 
+/* DSwifi */
 .logo{
-  font-size:clamp(48px,12vw,90px);
-  font-weight:900;
-  color:#ffd21f;
-  text-shadow:0 3px 12px #000;
-  margin-bottom:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:28px;
+    margin-bottom:28px;
 }
 
+.icono-red{
+    width:105px;
+    height:105px;
+    background:#07518c;
+    border:7px solid #050505;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:55px;
+    box-shadow:0 5px 10px rgba(0,0,0,.6);
+}
+
+.nombre{
+    font-size:70px;
+    font-weight:900;
+    color:#a48100;
+    text-shadow:2px 3px 4px #000;
+}
+
+/* AVISO */
 .aviso{
-  width:min(94%,700px);
-  background:linear-gradient(#ff2929,#bd0000);
-  border:3px solid #ffcc32;
-  border-radius:25px;
-  padding:20px 10px;
-  font-size:clamp(38px,9vw,70px);
-  font-weight:900;
-  line-height:1;
-  box-shadow:0 0 25px #ffb300;
+    width:100%;
+    background:linear-gradient(#991414,#790000);
+    border:3px solid #b18b00;
+    border-radius:28px;
+    min-height:195px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    padding:20px 30px;
+    box-shadow:0 10px 24px rgba(202,161,0,.35);
 }
 
-.mensaje{
-  max-width:700px;
-  margin:35px 0 25px;
-  font-size:clamp(28px,6vw,46px);
-  font-weight:800;
-  line-height:1.15;
+.triangulo{
+    font-size:72px;
 }
 
-.mensaje strong{
-  color:#ffd21f;
+.aviso-texto{
+    font-size:72px;
+    line-height:1.02;
+    font-weight:900;
+    color:white;
 }
 
+/* MENSAJE PRINCIPAL */
+.pendiente{
+    margin:42px 10px 28px;
+    font-size:49px;
+    line-height:1.16;
+    font-weight:900;
+    color:white;
+}
+
+.pendiente strong{
+    color:#c29a00;
+}
+
+/* YA PAGÓ */
 .pagado{
-  width:min(94%,700px);
-  background:#fff7dc;
-  color:#171717;
-  border-radius:20px;
-  padding:22px 15px;
-  font-size:clamp(23px,5vw,35px);
-  font-weight:700;
-  line-height:1.2;
-  margin-bottom:30px;
+    background:#f0eee6;
+    color:#111;
+    border-radius:23px;
+    padding:25px 25px;
+    margin:0 0 32px;
+    font-size:36px;
+    line-height:1.25;
+    font-weight:800;
 }
 
-.pagado strong{
-  color:#075ee8;
+.pagado span{
+    color:#063f98;
+    font-weight:900;
 }
 
+/* WHATSAPP */
 .whatsapp{
-  width:min(94%,700px);
-  display:block;
-  background:linear-gradient(#19d14a,#009b2c);
-  color:white;
-  text-decoration:none;
-  border-radius:22px;
-  padding:25px 15px;
-  font-size:clamp(25px,6vw,40px);
-  font-weight:900;
-  box-shadow:0 7px 20px #0008;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    width:100%;
+    min-height:175px;
+    padding:25px;
+    background:#08752c;
+    border-radius:25px;
+    text-decoration:none;
+    color:white;
+    font-size:43px;
+    line-height:1.25;
+    font-weight:900;
+    box-shadow:0 8px 18px rgba(0,0,0,.25);
 }
 
-.whatsapp:active{
-  transform:scale(.98);
+.whatsapp-icon{
+    font-size:52px;
+}
+
+/* CELULARES */
+@media(max-width:600px){
+
+    .contenido{
+        padding:14px 15px 22px;
+    }
+
+    .logo{
+        gap:14px;
+        margin-bottom:22px;
+    }
+
+    .icono-red{
+        width:70px;
+        height:70px;
+        font-size:36px;
+        border-width:5px;
+    }
+
+    .nombre{
+        font-size:48px;
+    }
+
+    .aviso{
+        min-height:145px;
+        gap:15px;
+        padding:15px;
+        border-radius:22px;
+    }
+
+    .triangulo{
+        font-size:48px;
+    }
+
+    .aviso-texto{
+        font-size:48px;
+    }
+
+    .pendiente{
+        font-size:35px;
+        margin:35px 5px 25px;
+    }
+
+    .pagado{
+        font-size:28px;
+        padding:22px 15px;
+    }
+
+    .whatsapp{
+        min-height:145px;
+        font-size:31px;
+        padding:20px 15px;
+    }
+
+    .whatsapp-icon{
+        font-size:40px;
+    }
 }
 </style>
 </head>
 
 <body>
+
 <div class="contenido">
 
-  <div class="logo">📶 DSwifi</div>
+    <div class="logo">
+        <div class="icono-red">📶</div>
+        <div class="nombre">DSwifi</div>
+    </div>
 
-  <div class="aviso">
-    ⚠️ AVISO DE PAGO
-  </div>
+    <div class="aviso">
+        <div class="triangulo">⚠️</div>
+        <div class="aviso-texto">
+            AVISO DE<br>PAGO
+        </div>
+    </div>
 
-  <div class="mensaje">
-    Tiene un <strong>pago pendiente</strong><br>
-    de su servicio de Internet.
-  </div>
+    <div class="pendiente">
+        Tiene un <strong>pago pendiente</strong><br>
+        de su servicio de Internet.
+    </div>
 
-  <div class="pagado">
-    Si ya realizaste el pago,<br>
-    <strong>olvida este mensaje.</strong>
-  </div>
+    <div class="pagado">
+        Si ya realizaste el pago,<br>
+        <span>olvida este mensaje.</span>
+    </div>
 
-  <a class="whatsapp"
-     href="https://wa.me/18295361123?text=Hola%20DSwifi,%20quiero%20reportar%20mi%20pago%20de%20Internet.">
-    💬 REPORTAR TU PAGO<br>POR WHATSAPP
-  </a>
+    <a class="whatsapp"
+       href="https://wa.me/18295361123"
+       target="_blank">
+        <span class="whatsapp-icon">💬</span>
+        <span>REPORTAR TU PAGO<br>POR WHATSAPP</span>
+    </a>
 
 </div>
+
 </body>
 </html>
