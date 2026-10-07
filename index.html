@@ -3,77 +3,127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DS WiFi - Aviso de Pago</title>
+<title>DSwifi - Aviso de Pago</title>
 
 <style>
+*{box-sizing:border-box}
+
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f2f4f7;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%,#ffcf40 0%,transparent 25%),
+    radial-gradient(circle at 90% 80%,#c88900 0%,transparent 30%),
+    linear-gradient(145deg,#120b00,#4b2d00,#120b00);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
-.caja{
-    background:white;
-    width:90%;
-    max-width:430px;
-    padding:30px;
-    border-radius:18px;
-    text-align:center;
-    box-shadow:0 5px 25px #aaa;
+
+.contenido{
+  width:100%;
+  min-height:100vh;
+  padding:28px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
+
 .logo{
-    font-size:34px;
-    font-weight:bold;
+  font-size:clamp(48px,12vw,90px);
+  font-weight:900;
+  color:#ffd21f;
+  text-shadow:0 3px 12px #000;
+  margin-bottom:20px;
 }
+
 .aviso{
-    color:#d40000;
-    font-size:25px;
-    font-weight:bold;
-    margin-top:20px;
+  width:min(94%,700px);
+  background:linear-gradient(#ff2929,#bd0000);
+  border:3px solid #ffcc32;
+  border-radius:25px;
+  padding:20px 10px;
+  font-size:clamp(38px,9vw,70px);
+  font-weight:900;
+  line-height:1;
+  box-shadow:0 0 25px #ffb300;
 }
-p{
-    font-size:18px;
-    line-height:1.5;
+
+.mensaje{
+  max-width:700px;
+  margin:35px 0 25px;
+  font-size:clamp(28px,6vw,46px);
+  font-weight:800;
+  line-height:1.15;
 }
+
+.mensaje strong{
+  color:#ffd21f;
+}
+
+.pagado{
+  width:min(94%,700px);
+  background:#fff7dc;
+  color:#171717;
+  border-radius:20px;
+  padding:22px 15px;
+  font-size:clamp(23px,5vw,35px);
+  font-weight:700;
+  line-height:1.2;
+  margin-bottom:30px;
+}
+
+.pagado strong{
+  color:#075ee8;
+}
+
 .whatsapp{
-    display:block;
-    background:#25D366;
-    color:white;
-    padding:17px;
-    margin-top:25px;
-    border-radius:12px;
-    text-decoration:none;
-    font-size:19px;
-    font-weight:bold;
+  width:min(94%,700px);
+  display:block;
+  background:linear-gradient(#19d14a,#009b2c);
+  color:white;
+  text-decoration:none;
+  border-radius:22px;
+  padding:25px 15px;
+  font-size:clamp(25px,6vw,40px);
+  font-weight:900;
+  box-shadow:0 7px 20px #0008;
+}
+
+.whatsapp:active{
+  transform:scale(.98);
 }
 </style>
 </head>
 
 <body>
+<div class="contenido">
 
-<div class="caja">
+  <div class="logo">📶 DSwifi</div>
 
-<div class="logo">📶 DS WiFi</div>
+  <div class="aviso">
+    ⚠️ AVISO DE PAGO
+  </div>
 
-<div class="aviso">⚠️ AVISO DE PAGO</div>
+  <div class="mensaje">
+    Tiene un <strong>pago pendiente</strong><br>
+    de su servicio de Internet.
+  </div>
 
-<p>
-Estimado cliente, tiene un pago pendiente de su servicio de Internet.
-</p>
+  <div class="pagado">
+    Si ya realizaste el pago,<br>
+    <strong>olvida este mensaje.</strong>
+  </div>
 
-<p>
-Para evitar la suspensión del servicio, favor realizar su pago.
-</p>
-
-<a class="whatsapp"
-href="https://wa.me/18295361123?text=Hola%20DS%20WiFi,%20quiero%20reportar%20mi%20pago%20de%20Internet.">
-💬 REPORTAR PAGO POR WHATSAPP
-</a>
+  <a class="whatsapp"
+     href="https://wa.me/18295361123?text=Hola%20DSwifi,%20quiero%20reportar%20mi%20pago%20de%20Internet.">
+    💬 REPORTAR TU PAGO<br>POR WHATSAPP
+  </a>
 
 </div>
-
 </body>
 </html>
