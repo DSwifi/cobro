@@ -3,220 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DSwifi - Aviso de Pago</title>
 
 <style>
-*{box-sizing:border-box}
-
-html,body{
-    margin:0;
-    width:100%;
-    min-height:100%;
+*{
+    box-sizing:border-box;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    margin:0;
     min-height:100vh;
+    font-family:Arial, Helvetica, sans-serif;
     background:
-      radial-gradient(circle at 50% 0%,#b98200 0%,#704500 30%,#3b2100 65%,#241200 100%);
-    color:white;
+        radial-gradient(circle at 50% 5%, #ffd84d 0%, #d79a00 25%, #8a5700 55%, #3b2100 100%);
     display:flex;
     justify-content:center;
-}
-
-.pagina{
-    width:100%;
-    max-width:650px;
-    min-height:100vh;
-    padding:30px 25px 35px;
+    align-items:center;
     text-align:center;
+    color:white;
 }
 
-/* LOGO */
-.marca{
-    margin:0 0 45px;
-    font-size:72px;
-    line-height:1;
+.contenido{
+    width:92%;
+    max-width:650px;
+}
+
+.logo{
+    font-size:58px;
     font-weight:900;
     font-style:italic;
-    letter-spacing:-5px;
-    color:#fff;
-    text-shadow:5px 5px 2px #000;
+    margin-bottom:25px;
+    color:white;
+    text-shadow:5px 5px 3px #222;
 }
 
-.marca span{
+.logo span{
     color:#ffd400;
 }
 
-/* AVISO ROJO */
 .aviso{
     position:relative;
-    background:linear-gradient(#d51414,#a90000);
+    background:linear-gradient(#e00000,#a40000);
     border:4px solid white;
-    border-radius:30px;
-    padding:35px 15px 22px;
-    box-shadow:
-       0 0 18px #d7a900,
-       0 8px 18px rgba(0,0,0,.55);
-    margin-bottom:65px;
+    border-radius:28px;
+    padding:30px 15px 20px;
+    box-shadow:0 8px 22px rgba(0,0,0,.45);
+    margin-bottom:45px;
 }
 
-.alerta{
+.icono-alerta{
     position:absolute;
-    width:92px;
-    height:92px;
-    border-radius:50%;
-    top:-55px;
+    top:-45px;
     left:50%;
     transform:translateX(-50%);
-    background:linear-gradient(#f33,#c40000);
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    background:#e21b1b;
     border:4px solid white;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:67px;
-    font-weight:900;
-    color:white;
-    box-shadow:0 0 12px #d9a700;
-}
-
-.aviso1{
-    font-size:54px;
-    font-weight:900;
-    line-height:1;
-    text-shadow:3px 3px 3px #650000;
-}
-
-.aviso2{
-    font-size:65px;
-    font-weight:900;
-    line-height:1.05;
-    color:#ffd400;
-    text-shadow:3px 3px 3px #650000;
-}
-
-/* PAGO PENDIENTE */
-.mensaje{
-    font-size:36px;
-    line-height:1.15;
-    font-weight:900;
-    margin:0 5px 28px;
-    text-shadow:3px 3px 3px #000;
-}
-
-.mensaje span{
-    color:#ffd400;
-}
-
-/* SI YA PAGÓ */
-.pagado{
-    background:linear-gradient(#fff,#eee8d8);
-    color:#102541;
-    border-radius:25px;
-    padding:20px;
-    margin-bottom:22px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:18px;
-    box-shadow:0 0 14px #d4a500;
-}
-
-.info{
-    width:60px;
-    height:60px;
-    flex:0 0 60px;
-    border-radius:50%;
-    background:#0879ed;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:Georgia,serif;
-    font-style:italic;
+    font-size:62px;
     font-weight:bold;
-    font-size:43px;
 }
 
-.pagado-texto{
-    text-align:left;
-    font-size:27px;
-    line-height:1.1;
+.aviso h1{
+    margin:5px 0 0;
+    font-size:52px;
+    line-height:.95;
+    text-shadow:3px 3px 3px #333;
+}
+
+.aviso h1 span{
+    color:#ffd400;
+}
+
+.pendiente{
+    font-size:34px;
     font-weight:900;
+    line-height:1.2;
+    margin-bottom:28px;
+    text-shadow:3px 3px 3px #333;
 }
 
-.pagado-texto span{
-    color:#0664dc;
+.pendiente span{
+    color:#ffd400;
 }
 
-/* WHATSAPP */
+.pagado{
+    background:white;
+    color:#111;
+    border-radius:22px;
+    padding:20px;
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:22px;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+.pagado span{
+    color:#075dcc;
+}
+
 .whatsapp{
-    width:100%;
-    min-height:120px;
-    background:linear-gradient(#09b636,#007a20);
-    border:4px solid #39ed63;
-    border-radius:27px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:15px;
+    display:block;
     text-decoration:none;
+    background:linear-gradient(#12bd42,#008823);
     color:white;
-    box-shadow:
-       0 0 18px #00d941,
-       0 8px 18px rgba(0,0,0,.5);
-}
-
-.wa-icon{
-    font-size:60px;
-    padding-right:18px;
-}
-
-.wa-texto{
-    border-left:2px solid white;
-    padding-left:18px;
-    text-align:left;
-    font-size:29px;
-    line-height:1.08;
+    border:4px solid #3cff65;
+    border-radius:25px;
+    padding:22px 15px;
+    font-size:28px;
     font-weight:900;
+    box-shadow:0 0 20px #18ff50;
 }
 
-.flecha{
-    margin-left:18px;
-    font-size:55px;
-    font-weight:900;
+.whatsapp span{
+    font-size:38px;
+    vertical-align:middle;
+    margin-right:8px;
 }
 
-/* CELULAR */
-@media(max-width:500px){
+@media(max-width:600px){
 
-    .pagina{
-        padding:22px 18px 25px;
+    .logo{
+        font-size:48px;
     }
 
-    .marca{
-        font-size:58px;
-        margin-bottom:48px;
+    .aviso h1{
+        font-size:43px;
     }
 
-    .aviso{
-        margin-bottom:55px;
+    .pendiente{
+        font-size:27px;
     }
 
-    .aviso1{font-size:43px}
-    .aviso2{font-size:55px}
+    .pagado{
+        font-size:22px;
+    }
 
-    .mensaje{font-size:29px}
-
-    .pagado-texto{font-size:22px}
-
-    .wa-texto{font-size:23px}
-
-    .wa-icon{font-size:48px}
-
-    .flecha{
-        font-size:45px;
-        margin-left:8px;
+    .whatsapp{
+        font-size:23px;
     }
 }
 </style>
@@ -224,48 +153,37 @@ body{
 
 <body>
 
-<div class="pagina">
+<div class="contenido">
 
-    <div class="marca">
+    <div class="logo">
         DS<span>wifi</span>
     </div>
 
     <div class="aviso">
-        <div class="alerta">!</div>
 
-        <div class="aviso1">AVISO DE</div>
-        <div class="aviso2">PAGO</div>
+        <div class="icono-alerta">!</div>
+
+        <h1>
+            AVISO DE<br>
+            <span>PAGO</span>
+        </h1>
+
     </div>
 
-    <div class="mensaje">
-        Tiene un pago pendiente<br>
+    <div class="pendiente">
+        Tiene un <span>pago pendiente</span><br>
         de su <span>servicio de Internet.</span>
     </div>
 
     <div class="pagado">
-
-        <div class="info">i</div>
-
-        <div class="pagado-texto">
-            Si ya realizaste el pago,<br>
-            <span>olvida este mensaje.</span>
-        </div>
-
+        ℹ️ &nbsp; Si ya realizaste el pago,<br>
+        <span>olvida este mensaje.</span>
     </div>
 
-    <a class="whatsapp"
-       href="https://wa.me/18295361123"
-       target="_blank">
-
-        <div class="wa-icon">💬</div>
-
-        <div class="wa-texto">
-            REPORTAR TU PAGO<br>
-            POR WHATSAPP
-        </div>
-
-        <div class="flecha">›</div>
-
+    <a class="whatsapp" href="#">
+        <span>💬</span>
+        REPORTAR TU PAGO<br>
+        POR WHATSAPP ❯
     </a>
 
 </div>
