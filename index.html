@@ -1,115 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSwifi - Aviso de pago</title>
 
-<title>DSwifi - Aviso de Pago</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
 
-<style>
-*{
-    box-sizing:border-box;
-}
+    .caja {
+      width: 90%;
+      max-width: 420px;
+      background: #1d1d1d;
+      padding: 30px 20px;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(255, 193, 7, 0.25);
+    }
 
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#111;
-    color:white;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
+    h1 {
+      color: #ffc107;
+      margin-bottom: 20px;
+    }
 
-.card{
-    width:100%;
-    max-width:420px;
-    background:#1c1c1c;
-    border:2px solid #d4a72c;
-    border-radius:20px;
-    padding:30px 22px;
-    text-align:center;
-    box-shadow:0 10px 35px rgba(0,0,0,.5);
-}
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
 
-.logo{
-    font-size:38px;
-    font-weight:bold;
-    color:#d4a72c;
-    margin-bottom:8px;
-}
+    .boton {
+      display: block;
+      margin-top: 25px;
+      padding: 16px;
+      background: #ffc107;
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 10px;
+    }
 
-.sub{
-    color:#aaa;
-    margin-bottom:28px;
-}
-
-h1{
-    font-size:25px;
-    margin:0 0 18px;
-}
-
-p{
-    font-size:18px;
-    line-height:1.5;
-    color:#ddd;
-}
-
-.aviso{
-    color:#d4a72c;
-    font-weight:bold;
-}
-
-.boton{
-    display:block;
-    margin-top:28px;
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    padding:16px;
-    border-radius:12px;
-    font-size:17px;
-    font-weight:bold;
-}
-
-.gracias{
-    margin-top:22px;
-    font-size:14px;
-    color:#888;
-}
-</style>
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="card">
-
+  <div class="caja">
     <div class="logo">DSwifi</div>
-    <div class="sub">Servicio de Internet</div>
 
-    <h1>⚠️ AVISO DE PAGO</h1>
+    <h1>AVISO DE PAGO</h1>
 
     <p>
-        Tiene un <span class="aviso">pago pendiente</span>
-        de su servicio de Internet.
+      Tiene un pago pendiente de su servicio de Internet.
     </p>
 
     <p>
-        Si ya realizaste el pago, olvida este mensaje.
+      Si ya realizaste el pago, olvida este mensaje.
     </p>
 
     <a class="boton"
        href="https://wa.me/18295361123?text=Hola%20DSwifi,%20quiero%20reportar%20mi%20pago%20de%20Internet.">
        REPORTAR TU PAGO POR WHATSAPP
     </a>
-
-    <div class="gracias">
-        DSwifi
-    </div>
-
-</div>
+  </div>
 
 </body>
 </html>
