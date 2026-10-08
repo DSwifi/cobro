@@ -2,7 +2,7 @@ importScripts('https://www.gstatic.com/firebasejs/12.4.0/firebase-app-compat.js'
 importScripts('https://www.gstatic.com/firebasejs/12.4.0/firebase-messaging-compat.js');
 
 firebase.initializeApp({
-  apiKey: "AIzaSyCsROoMjXx0iLjoLbkh9u_4U0BZr_bQyU0",
+  apiKey: "AIzaSyCsR0oMjXx0iLjoLbkh9u_4U0BZr_bQyU0",
   authDomain: "dswifi.firebaseapp.com",
   projectId: "dswifi",
   storageBucket: "dswifi.firebasestorage.app",
@@ -11,3 +11,15 @@ firebase.initializeApp({
 });
 
 const messaging = firebase.messaging();
+
+messaging.onBackgroundMessage((payload) => {
+  console.log("Mensaje recibido:", payload);
+});
+
+self.addEventListener("notificationclick", function(event) {
+  event.notification.close();
+
+  event.waitUntil(
+    clients.openWindow("https://dswifi.github.io/cobro/")
+  );
+});
