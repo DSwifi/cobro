@@ -59,7 +59,6 @@ body{
     box-shadow:
         0 0 18px #ffd000,
         0 8px 22px rgba(0,0,0,.55);
-
     margin-bottom:40px;
 }
 
@@ -68,21 +67,16 @@ body{
     top:-48px;
     left:50%;
     transform:translateX(-50%);
-
     width:90px;
     height:90px;
     border-radius:50%;
-
     background:linear-gradient(#ff3636,#c50000);
     border:4px solid white;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-size:65px;
     font-weight:900;
-
     box-shadow:0 0 15px #ffd000;
 }
 
@@ -113,15 +107,11 @@ body{
 .pagado{
     background:linear-gradient(#ffffff,#f0eadc);
     color:#17283d;
-
     border-radius:22px;
     padding:20px;
-
     font-size:26px;
     font-weight:900;
-
     margin-bottom:22px;
-
     box-shadow:
         0 0 12px #ffc400,
         0 5px 15px rgba(0,0,0,.35);
@@ -131,24 +121,41 @@ body{
     color:#075dcc;
 }
 
+.notificaciones{
+    width:100%;
+    border:none;
+    cursor:pointer;
+    background:linear-gradient(#1877f2,#0754b8);
+    color:white;
+    border:4px solid #5aa1ff;
+    border-radius:25px;
+    padding:20px 15px;
+    font-size:24px;
+    font-weight:900;
+    margin-bottom:22px;
+    box-shadow:
+        0 0 18px #1785ff,
+        0 7px 18px rgba(0,0,0,.4);
+}
+
+#estado{
+    font-size:17px;
+    font-weight:bold;
+    margin:-8px 0 20px;
+    text-shadow:2px 2px 3px #222;
+}
+
 .whatsapp{
     width:100%;
     display:block;
-
     text-decoration:none;
-
     background:linear-gradient(#12c943,#008a25);
-
     color:white;
-
     border:4px solid #40f46a;
     border-radius:25px;
-
     padding:22px 15px;
-
     font-size:28px;
     font-weight:900;
-
     box-shadow:
         0 0 20px #19ff50,
         0 7px 18px rgba(0,0,0,.4);
@@ -160,7 +167,6 @@ body{
 }
 
 @media(max-width:600px){
-
     .contenido{
         width:94%;
         padding:30px 0;
@@ -185,6 +191,10 @@ body{
 
     .pagado{
         font-size:21px;
+    }
+
+    .notificaciones{
+        font-size:20px;
     }
 
     .whatsapp{
@@ -223,6 +233,12 @@ body{
         <span>olvida este mensaje.</span>
     </div>
 
+    <button class="notificaciones" id="activarNotificaciones">
+        🔔 ACTIVAR NOTIFICACIONES DSWIFI
+    </button>
+
+    <div id="estado"></div>
+
     <a class="whatsapp"
        href="https://wa.me/18295361123?text=Hola%20DSwifi,%20quiero%20reportar%20mi%20pago%20de%20Internet."
        target="_blank">
@@ -230,10 +246,86 @@ body{
         <span class="icono">💬</span>
         REPORTAR TU PAGO<br>
         POR WHATSAPP ❯
-
     </a>
 
 </div>
+
+<script src="https://www.gstatic.com/firebasejs/12.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.4.0/firebase-messaging-compat.js"></script>
+
+<script>
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCsROoMjXx0iLjoLbkh9u_4U0BZr_bQyU0",
+    authDomain: "dswifi.firebaseapp.com",
+    projectId: "dswifi",
+    storageBucket: "dswifi.firebasestorage.app",
+    messagingSenderId: "874160724103",
+    appId: "1:874160724103:web:92a1693f14dddad8380022"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const messaging = firebase.messaging();
+
+const vapidKey =
+"BFQzkyLlzSI1nDzYx3WMcCMNbNwtBo9LwSkB1TUarV7T5XMRd0MUwDnclamFtGmGgkeaK890ekcd3oCSy-FL7OE";
+
+document.getElementById("activarNotificaciones").addEventListener("click", async function(){
+
+    const estado = document.getElementById("estado");
+
+    try{
+
+        estado.innerText = "Activando notificaciones...";
+
+        const permiso = await Notification.requestPermission();
+
+        if(permiso !== "granted"){
+            estado.innerText = "❌ No se permitieron las notificaciones.";
+            return;
+        }
+
+        const registro = await navigator.serviceWorker.register(
+            "./firebase-messaging-sw.js"
+        );
+
+        const token = await messaging.getToken({
+            vapidKey: vapidKey,
+            serviceWorkerRegistration: registro
+        });
+
+        if(token){
+
+            console.log("TOKEN DSWIFI:", token);
+
+            localStorage.setItem("dswifiToken", token);
+
+            estado.innerText =
+            "✅ Notificaciones DSwifi activadas correctamente.";
+
+            document.getElementById("activarNotificaciones").innerText =
+            "✅ NOTIFICACIONES ACTIVADAS";
+
+        }else{
+
+            estado.innerText =
+            "❌ No se pudo registrar este celular.";
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+        estado.innerText =
+        "❌ Error al activar las notificaciones.";
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
