@@ -1,50 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DSwifi - Aviso de Pago</title>
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 50% 0%,
+        #ffe56b 0%,
+        #ffc400 18%,
+        #d99400 38%,
+        #8c5700 65%,
+        #3b2100 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
 .contenido{
-    width:92%;
-    max-width:650px;
-    padding:15px 0;
+    width:94%;
+    max-width:600px;
+    padding:12px 0;
 }
 
 .logo{
-    font-size:50px;
+    font-size:46px;
     font-weight:900;
     font-style:italic;
-    margin-bottom:30px;
+    margin-bottom:28px;
     color:white;
-    text-shadow:5px 5px 4px #222;
+    text-shadow:4px 4px 4px #222;
 }
+
+.logo span{color:#ffd400;}
 
 .aviso{
     position:relative;
     background:linear-gradient(#e71919,#a60000);
-    border:4px solid white;
-    border-radius:28px;
-    padding:28px 15px 16px;
-    box-shadow:
-        0 0 18px #ffd000,
-        0 8px 22px rgba(0,0,0,.55);
-    margin-bottom:18px;
+    border:3px solid white;
+    border-radius:24px;
+    padding:25px 10px 12px;
+    box-shadow:0 0 15px #ffd000,0 6px 15px rgba(0,0,0,.5);
+    margin-bottom:12px;
+}
+
+.icono-alerta{
+    position:absolute;
+    top:-34px;
+    left:50%;
+    transform:translateX(-50%);
+    width:66px;
+    height:66px;
+    border-radius:50%;
+    background:linear-gradient(#ff3636,#c50000);
+    border:3px solid white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:48px;
+    font-weight:900;
+    box-shadow:0 0 12px #ffd000;
+}
+
+.aviso h1{
+    margin:2px 0 0;
+    font-size:38px;
+    line-height:.95;
+    text-shadow:3px 3px 3px #660000;
+}
+
+.aviso h1 span{
+    color:#ffd400;
+    font-size:48px;
 }
 
 .pendiente{
-    font-size:30px;
+    font-size:25px;
     font-weight:900;
     line-height:1.1;
-    margin-bottom:15px;
+    margin-bottom:10px;
     text-shadow:3px 3px 4px #222;
 }
+
+.pendiente span{color:#ffd400;}
 
 .pagado{
     background:linear-gradient(#ffffff,#f0eadc);
     color:#17283d;
-    border-radius:22px;
-    padding:14px;
-    font-size:22px;
+    border-radius:18px;
+    padding:10px;
+    font-size:19px;
     font-weight:900;
-    margin-bottom:12px;
-    box-shadow:
-        0 0 12px #ffc400,
-        0 5px 15px rgba(0,0,0,.35);
+    margin-bottom:10px;
+    box-shadow:0 0 10px #ffc400,0 4px 10px rgba(0,0,0,.35);
 }
+
+.pagado span{color:#075dcc;}
 
 .notificaciones{
     width:100%;
@@ -52,10 +113,171 @@
     cursor:pointer;
     background:linear-gradient(#1877f2,#0754b8);
     color:white;
-    border:4px solid #5aa1ff;
-    border-radius:25px;
-    padding:14px 10px;
-    font-size:21px;
+    border:3px solid #5aa1ff;
+    border-radius:18px;
+    padding:11px 8px;
+    font-size:19px;
     font-weight:900;
-    margin-bottom:12px;
+    margin-bottom:8px;
+    box-shadow:0 0 12px #1785ff,0 4px 10px rgba(0,0,0,.4);
 }
+
+#estado{
+    font-size:14px;
+    font-weight:bold;
+    margin:0 0 7px;
+    text-shadow:2px 2px 3px #222;
+}
+
+.whatsapp{
+    width:100%;
+    display:block;
+    text-decoration:none;
+    background:linear-gradient(#12c943,#008a25);
+    color:white;
+    border:3px solid #40f46a;
+    border-radius:18px;
+    padding:11px 8px;
+    font-size:20px;
+    font-weight:900;
+    box-shadow:0 0 14px #19ff50,0 4px 10px rgba(0,0,0,.4);
+}
+
+.whatsapp .icono{
+    font-size:27px;
+    margin-right:5px;
+}
+
+@media(max-width:600px){
+    body{align-items:flex-start;}
+
+    .contenido{
+        padding-top:18px;
+    }
+
+    .logo{
+        font-size:42px;
+        margin-bottom:27px;
+    }
+
+    .aviso h1{font-size:34px;}
+    .aviso h1 span{font-size:44px;}
+    .pendiente{font-size:22px;}
+    .pagado{font-size:17px;}
+    .notificaciones{font-size:17px;}
+    .whatsapp{font-size:18px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenido">
+
+    <div class="logo">
+        DS<span>wifi</span>
+    </div>
+
+    <div class="aviso">
+        <div class="icono-alerta">!</div>
+
+        <h1>
+            AVISO DE<br>
+            <span>PAGO</span>
+        </h1>
+    </div>
+
+    <div class="pendiente">
+        Tiene un <span>pago pendiente</span><br>
+        de su <span>servicio de Internet.</span>
+    </div>
+
+    <div class="pagado">
+        ℹ️ Si ya realizaste el pago,
+        <span>olvida este mensaje.</span>
+    </div>
+
+    <button class="notificaciones" id="activarNotificaciones">
+        🔔 ACTIVAR NOTIFICACIONES DSWIFI
+    </button>
+
+    <div id="estado"></div>
+
+    <a class="whatsapp"
+       href="https://wa.me/18295361123?text=Hola%20DSwifi,%20quiero%20reportar%20mi%20pago%20de%20Internet."
+       target="_blank">
+
+        <span class="icono">💬</span>
+        REPORTAR TU PAGO POR WHATSAPP ❯
+    </a>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/12.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.4.0/firebase-messaging-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+    apiKey: "AIzaSyCsROoMjXx0iLjoLbkh9u_4U0BZr_bQyU0",
+    authDomain: "dswifi.firebaseapp.com",
+    projectId: "dswifi",
+    storageBucket: "dswifi.firebasestorage.app",
+    messagingSenderId: "874160724103",
+    appId: "1:874160724103:web:92a1693f14dddad8380022"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const messaging = firebase.messaging();
+
+const vapidKey =
+"BFQzkyLlzSI1nDzYx3WMcCMNbNwtBo9LwSkB1TUarV7T5XMRd0MUwDnclamFtGmGgkeaK890ekcd3oCSy-FL7OE";
+
+document.getElementById("activarNotificaciones").addEventListener("click", async function(){
+
+    const estado = document.getElementById("estado");
+
+    try{
+        estado.innerText = "Activando notificaciones...";
+
+        const permiso = await Notification.requestPermission();
+
+        if(permiso !== "granted"){
+            estado.innerText = "❌ No se permitieron las notificaciones.";
+            return;
+        }
+
+        const registro = await navigator.serviceWorker.register(
+            "./firebase-messaging-sw.js"
+        );
+
+        const token = await messaging.getToken({
+            vapidKey: vapidKey,
+            serviceWorkerRegistration: registro
+        });
+
+        if(token){
+            console.log("TOKEN DSWIFI:", token);
+            localStorage.setItem("dswifiToken", token);
+
+            estado.innerText =
+            "✅ Notificaciones DSwifi activadas correctamente.";
+
+            document.getElementById("activarNotificaciones").innerText =
+            "✅ NOTIFICACIONES ACTIVADAS";
+
+        }else{
+            estado.innerText =
+            "❌ No se pudo registrar este celular.";
+        }
+
+    }catch(error){
+        console.error(error);
+        estado.innerText =
+        "❌ Error al activar las notificaciones.";
+    }
+});
+</script>
+
+</body>
+</html>
