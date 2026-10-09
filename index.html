@@ -6,147 +6,32 @@
 <title>DSwifi - Aviso de Pago</title>
 
 <style>
-*{
-    box-sizing:border-box;
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+    background:#000;
 }
 
 body{
-    margin:0;
-    min-height:100vh;
     display:flex;
     justify-content:center;
-    align-items:center;
-    padding:18px;
-    font-family:Arial,Helvetica,sans-serif;
-    background:linear-gradient(160deg,#050505,#151515);
-    color:#fff;
+    align-items:flex-start;
 }
 
-.card{
-    width:100%;
-    max-width:410px;
-    padding:32px 24px;
-    text-align:center;
-    background:#101010;
-    border-radius:24px;
-    border:1px solid #d4a72c;
-    box-shadow:0 0 30px rgba(212,167,44,.20);
-}
-
-.logo{
-    font-size:42px;
-    font-weight:800;
-    color:#d4a72c;
-    margin-bottom:4px;
-}
-
-.servicio{
-    color:#999;
-    font-size:15px;
-    margin-bottom:25px;
-}
-
-.icono{
-    width:65px;
-    height:65px;
-    margin:0 auto 15px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:50%;
-    background:#d4a72c;
-    color:#111;
-    font-size:36px;
-    font-weight:bold;
-}
-
-h1{
-    margin:0 0 20px;
-    color:#d4a72c;
-    font-size:27px;
-}
-
-.mensaje{
-    font-size:18px;
-    line-height:1.55;
-    color:#eee;
-}
-
-.destacado{
-    color:#d4a72c;
-    font-weight:bold;
-}
-
-.fecha{
-    margin:22px 0;
-    padding:13px;
-    background:#191919;
-    border-radius:12px;
-    color:#ddd;
-    font-size:15px;
-}
-
-.whatsapp{
+img{
     display:block;
-    margin-top:22px;
-    padding:17px 12px;
-    border-radius:13px;
-    background:#25D366;
-    color:#fff;
-    text-decoration:none;
-    font-size:17px;
-    font-weight:bold;
-}
-
-.nota{
-    margin-top:20px;
-    color:#999;
-    font-size:14px;
-    line-height:1.4;
-}
-
-.pie{
-    margin-top:25px;
-    color:#666;
-    font-size:12px;
+    width:100%;
+    max-width:520px;
+    height:auto;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-
-    <div class="logo">DSwifi</div>
-    <div class="servicio">Servicio de Internet</div>
-
-    <div class="icono">!</div>
-
-    <h1>AVISO DE PAGO</h1>
-
-    <div class="mensaje">
-        Su servicio presenta un
-        <span class="destacado">pago pendiente.</span>
-    </div>
-
-    <div class="fecha">
-        Evite la suspensión de su servicio realizando su pago antes de la fecha de corte.
-    </div>
-
-    <a class="whatsapp"
-       href="https://wa.me/18295361123?text=Hola%20DSwifi,%20quiero%20reportar%20mi%20pago%20de%20Internet.">
-       REPORTAR PAGO POR WHATSAPP
-    </a>
-
-    <div class="nota">
-        Si ya realizó su pago, puede ignorar este aviso.
-    </div>
-
-    <div class="pie">
-        DSwifi
-    </div>
-
-</div>
+<img src="aviso-pago.png" alt="DSwifi Aviso de Pago">
 
 </body>
 </html>
